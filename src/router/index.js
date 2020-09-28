@@ -8,24 +8,20 @@ Vue.use(Router)
 
 export default new Router({
     routes: [{
-            path: '/',
-            name: 'start',
-            component: startPhone
-        },
-        {
-            path: '/login',
+            path: '/', // '/' 项目运行默认显示页面
             name: 'login',
             component: login
         },
+        {
+            path: '/start', // '/+name' 与页面中路由跳转的名称相对应 this.$router.push('/+name')
+            name: 'start',
+            component: startPhone
+        },
+
         {
             path: '/register',
             name: 'register',
             component: register
         },
-        // {
-        //     path: '/register',
-        //     component: () =>
-        //         import ('views/register.vue'), //注册
-        // },
     ]
 })

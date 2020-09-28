@@ -6,10 +6,10 @@
       </div>
       <div class="he_tit"><span>复旦大学(邯郸校区)</span></div>
       <div class="he_rig fr cr">
-        <!-- <span @click="switchLogin()">登录</span>/<span @click="switchReg()"
+        <span @click="switchLogin()">登录</span>/<span @click="switchReg()"
           >注册</span
-        > -->
-        <router-link to="/login">登录</router-link>
+        >
+        <!-- <router-link to="/login">登录</router-link> -->
       </div>
     </div>
     <div class="nav">
@@ -108,12 +108,13 @@ export default {
           console.log(111);
         });
     },
-    // 调到登录页面
+    // 跳到登录页面
     switchLogin() {
-      location.href = "../views/login.vue";
+      this.$router.push("/login");
     },
+    // 跳到注册页面
     switchReg() {
-      location.href = "../views/register.vue";
+      this.$router.push("/register");
     }
   }
 };

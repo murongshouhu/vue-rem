@@ -16,6 +16,7 @@
         "amfe-flexible": "^2.2.1",
         "axios": "^0.20.0",
         "lib-flexible": "^0.3.2",
+        "mint-ui": "^2.2.13",
         "postcss-px2rem-exclude": "0.0.6",
         "px2rem-loader": "^0.1.9",
         "vconsole": "^3.3.4",
