@@ -1,14 +1,16 @@
 <template>
   <div class="home">
-    <!-- <div class="rem_sty">
-      <img class="img" src="../assets/imgs/home/logo.png" />
-    </div> -->
     <div class="head">
       <div class="he_left">
         <img class="img fl" src="../assets/imgs/home/search.png" />
       </div>
       <div class="he_tit"><span>复旦大学(邯郸校区)</span></div>
-      <div class="he_rig fr"><span>登录</span>/<span>注册</span></div>
+      <div class="he_rig fr cr">
+        <!-- <span @click="switchLogin()">登录</span>/<span @click="switchReg()"
+          >注册</span
+        > -->
+        <router-link to="/login">登录</router-link>
+      </div>
     </div>
     <div class="nav">
       <div class="tp">
@@ -82,6 +84,7 @@ export default {
     // this.queryList();
   },
   methods: {
+    // 请求数据列表
     queryList() {
       let self = this;
       //参数
@@ -104,6 +107,13 @@ export default {
           console.log(error);
           console.log(111);
         });
+    },
+    // 调到登录页面
+    switchLogin() {
+      location.href = "../views/login.vue";
+    },
+    switchReg() {
+      location.href = "../views/register.vue";
     }
   }
 };
@@ -195,6 +205,9 @@ export default {
     left: 0;
     bottom: 0;
     background: #fff; //避免透明，层级此时无效
+  }
+  .cr {
+    cursor: pointer;
   }
   .rem_sty {
     width: 3.37rem;
