@@ -6,9 +6,12 @@
       </div>
       <div class="he_tit"><span>复旦大学(邯郸校区)</span></div>
       <div class="he_rig fr cr">
-        <span @click="switchLogin()">登录</span>/<span @click="switchReg()"
-          >注册</span
-        >
+        <div v-if="!userName">
+          <span @click="switchLogin()">登录</span>/<span @click="switchReg()"
+            >注册</span
+          >
+        </div>
+        <div else>{{ userName }}</div>
         <!-- <router-link to="/login">登录</router-link> -->
       </div>
     </div>
@@ -70,6 +73,7 @@
 import navHref from "../../src/components/home/navhref";
 import conHref from "../../src/components/home/conhref";
 import footHref from "../../src/components/home/foothref";
+import bus from "../util/bus";
 
 export default {
   components: {
@@ -78,9 +82,17 @@ export default {
     "foot-href": footHref
   },
   data() {
-    return {};
+    return {
+      userName: ""
+    };
+  },
+  computed: {
+    loginData() {
+      return bus.loginData;
+    }
   },
   created() {
+    this.userName = bus.loginData.userName;
     // this.queryList();
   },
   methods: {
@@ -110,11 +122,11 @@ export default {
     },
     // 跳到登录页面
     switchLogin() {
-      this.$router.push("/login");
+      this.$router.push("/register");
     },
     // 跳到注册页面
     switchReg() {
-      this.$router.push("/register");
+      this.$router.push("/");
     }
   }
 };
